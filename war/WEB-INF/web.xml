@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<jsp-file>Register.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/RegisterPage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SignUpServlet</servlet-name>
+		<servlet-class>com.full.SignUpServletServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignUpServlet</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.full.LogInServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.full.LogInPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/LoginPage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Welcome</servlet-name>
+		<servlet-class>com.full.WelcomePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Welcome</servlet-name>
+		<url-pattern>/WelcomePage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Profile</servlet-name>
+		<servlet-class>com.full.ProfilePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Profile</servlet-name>
+		<url-pattern>/ProfilePage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserProfile</servlet-name>
+		<servlet-class>com.full.UserProfileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserProfile</servlet-name>
+		<url-pattern>/userprofile</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>LogOut</servlet-name>
+		<servlet-class>com.full.LogOutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogOut</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- Authentication Filter -->
+	<filter>
+		<filter-name>AuthenticationFilter</filter-name>
+		<filter-class>com.full.AuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthenticationFilter</filter-name>
+		<url-pattern>/WelcomePage</url-pattern>
+		<url-pattern>/ProfilePage</url-pattern>
+	</filter-mapping>
+
+	<!-- Cache Filter -->
+	<filter>
+		<filter-name>CacheFilter</filter-name>
+		<filter-class>com.full.CacheClearFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+	<welcome-file-list>
+		<welcome-file>HomePage.html</welcome-file>
+	</welcome-file-list>
+</web-app>
