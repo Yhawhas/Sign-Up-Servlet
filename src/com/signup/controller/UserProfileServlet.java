@@ -1,16 +1,26 @@
-package com.full;
+package com.signup.controller;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.signup.bean.Person;
+import com.signup.model.PersonDetailsStorage;
+
+
 @SuppressWarnings("serial")
 public class UserProfileServlet extends HttpServlet {
+	
+	private PersonDetailsStorage storage;
+	
+		public UserProfileServlet() {
+			storage = new PersonDetailsStorage();
+		}
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		resp.setContentType("text/html");
 
@@ -21,15 +31,19 @@ public class UserProfileServlet extends HttpServlet {
 			String firstName = req.getParameter("fname");
 			String lastName = req.getParameter("lname");
 			String eMail = req.getParameter("email");
-			String dOB = req.getParameter("dateOfBirth");
+			String dateOfBirth = req.getParameter("dateOfBirth");
 			String address = req.getParameter("address");
-			ServletContext context=getServletContext(); 
 			
-			context.setAttribute("fname", firstName);
-			context.setAttribute("lname", lastName);
-			context.setAttribute("email", eMail);
-			context.setAttribute("dateOfBirth", dOB);
-			context.setAttribute("address", address);
+			Person person = new Person();
+			person.setFirstName(firstName);
+			person.setLastName(lastName);
+			person.setEMail(eMail);
+			person.setDateOfBirth(dateOfBirth);
+			person.setAddress(address);
+			
+			String username = (String)session.getAttribute("usernameSession");
+			storage.addPersonDetail(username, person);
+			
 			boolean result = true;
 			session.setAttribute("ProfileSubmitted", result);
 

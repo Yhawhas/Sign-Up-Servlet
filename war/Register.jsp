@@ -11,8 +11,7 @@
 body{
 margin-top: 12%;
 margin-left: 35%;
-margin-right:25%;
-margin-bottom:25%;
+margin-bottom:20%;
 }
 </style>
 <script type="text/javascript">
@@ -55,14 +54,15 @@ margin-bottom:25%;
 				  return true;
 			  }
 		  }
-		  return false;	  }
+		  return false;	  
+		  }
 
 	function formvalidation() {
 		userName = document.SignupForm.username.value;
 		userPassword = document.SignupForm.password1.value;
 		var userPassword2 = document.SignupForm.password2.value;
 		if (userName.length < 3 || !usernameValidation()) {
-			alert(" Incorrect Username")
+			alert(" Incorrect Username, only alphabets are allowed")
 			return false;
 		}
 		if (userPassword == userPassword2 && userPassword.length > 6 && containsCapital() && containsSpecialCharacter() && containsNumber()) {
@@ -71,7 +71,6 @@ margin-bottom:25%;
 			alert("Password Incorrect ")
 			return false;
 		}
-		return true;
 	}
 </script>
 </head>
@@ -79,8 +78,8 @@ margin-bottom:25%;
 	<%@ page session="false"%>
 	<h1>Sign Up</h1>
 	<form name="SignupForm" action="signup" method="post" onsubmit="return formvalidation()">
-		User Name: <input type="text" name="username" placeholder = "Ex: yhawhas" required> *Minimum 3 characters and Only Alphabets are allowed<br>
-		Password: <input type="password" name="password1" placeholder = "Ex: 31@Joshua" required>*Minimum 6 Characters with atleast one capital, one number and one special character<br>
+		User Name: <input type="text" name="username" placeholder = "Ex: yhawhas" required>*Minimum 3 characters and Only Alphabets are allowed<br><br>
+		Password: <input type="password" name="password1" placeholder = "Ex: 31@Joshua" required>*Minimum 6 Characters with atleast 1 capital, 1 number and 1 special character<br><br>
 		Re-Type Password: <input type="password" name="password2" required><br>
 		<input type="submit" value="Sign Up"><br>
 	</form>

@@ -1,11 +1,15 @@
-package com.full;
+package com.signup.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.signup.model.UserStorage;
 
 @SuppressWarnings("serial")
 public class LogInServlet extends HttpServlet {
@@ -25,10 +29,12 @@ public class LogInServlet extends HttpServlet {
 			session.setAttribute("usernameSession", name);
 			resp.sendRedirect("/WelcomePage");
 		} else {
+			
 			resp.setContentType("text/html");
-			resp.getWriter().println("User Invalid");
-			System.out.println("User Invalid");
-			resp.sendRedirect("/LoginPage");
+			String userInvalidMessage = "User Name or Password is incorrect";
+			req.setAttribute("message", userInvalidMessage);
+			RequestDispatcher rd = req.getRequestDispatcher("/LoginPage");
+			rd.forward(req, resp);
 		}
 	}
 

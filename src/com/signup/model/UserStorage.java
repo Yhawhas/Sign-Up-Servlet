@@ -1,4 +1,4 @@
-package com.full;
+package com.signup.model;
 
 import java.util.HashMap;
 import java.util.Map;
