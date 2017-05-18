@@ -10,6 +10,10 @@ public class PersonDetailsStorage {
 	
 	private static Map<String, ArrayList<Person>> personData = new HashMap<>();
 
+	public Map<String, ArrayList<Person>> getPersonData() {
+		return personData;
+	}
+	
 	public void addPersonDetail(String username, Person person){
 		if(personData.containsKey(username)){
 			personData.get(username).add(person);

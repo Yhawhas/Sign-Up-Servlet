@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -21,8 +22,8 @@ body {
 	<p>${message1}</p>
 	<h1>Log In page</h1>
 	<form action="login" method="post" name="LoginForm">
-		User Name: <input type="text" name="uname" onblur="usernameValidation()" required><br><br> 
-			Password: <input type="password" name="password" required><br><br> 
+		User Name: <input type="text" name="uname" onblur="usernameValidation()"  required><br><br> 
+			Password: <input type="password" name="password"  required><br><br> 
 			<input type="submit" value="Log In">
 	</form>
 	<script>

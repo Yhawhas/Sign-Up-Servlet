@@ -15,22 +15,11 @@ public class LogInPageServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		HttpSession session = req.getSession(false);
 		if (session == null) {
-			
 			RequestDispatcher rd = req.getRequestDispatcher("/LogIn.jsp");
 			rd.forward(req, resp);
 		}
-		if (session != null) {
-			if ((boolean) session.getAttribute("ProfileSubmitted")) {
-				System.out.println("check: "+(boolean) session.getAttribute("ProfileSubmitted"));
-				
-				resp.sendRedirect("/ProfilePage");
-//				RequestDispatcher reqDis = req.getRequestDispatcher("/ProfilePage");
-//				reqDis.forward(req, resp);
-			}
-			System.out.println("outside else");
+		else{
 			resp.sendRedirect("/WelcomePage");
-//			RequestDispatcher reqDis = req.getRequestDispatcher("/WelcomePage");
-//			reqDis.forward(req, resp);
 		}
 	}
 

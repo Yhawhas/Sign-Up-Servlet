@@ -24,8 +24,6 @@ public class LogInServlet extends HttpServlet {
 
 		if (uservalid) {
 			HttpSession session = req.getSession();
-			boolean result = false;
-			session.setAttribute("ProfileSubmitted", result);
 			session.setAttribute("usernameSession", name);
 			resp.sendRedirect("/WelcomePage");
 		} else {
@@ -40,15 +38,9 @@ public class LogInServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession(false);
-		if (session == null) {
+		if (session == null) 
 			resp.sendRedirect("/LoginPage");
-		}
-
-		if (session != null) {
-			if ((boolean) session.getAttribute("ProfileSubmitted")) {
-				resp.sendRedirect("/ProfilePage");
-			}
+		else	
 			resp.sendRedirect("/WelcomePage");
 		}
-	}
 }

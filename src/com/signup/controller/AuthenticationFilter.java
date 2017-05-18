@@ -20,14 +20,15 @@ public class AuthenticationFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
+		
 		HttpSession session = req.getSession(false);
+
 		if (session == null) {
-			
 			String sessionExpiredMessage= "Session Expired, Please Log In again!!";
 			req.setAttribute("message", sessionExpiredMessage);
+
 			RequestDispatcher rd = req.getRequestDispatcher("/LoginPage");
 			rd.forward(req, resp);
-//			resp.sendRedirect("/LoginPage");
 		} else {
 			chain.doFilter(req, resp);
 		}

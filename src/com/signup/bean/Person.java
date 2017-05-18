@@ -4,7 +4,7 @@ package com.signup.bean;
 public class Person {
 	private String firstName;
 	private String lastName;
-	private String eMail; 
+	private String myemail; 
 	private String dateOfBirth;
 	private String address;
 	
@@ -14,8 +14,8 @@ public class Person {
 	public String getLastName() {
 		return lastName;
 	}
-	public String getEMail() {
-		return eMail;
+	public String getmyemail() {
+		return myemail;
 	}
 	public String getDateOfBirth() {
 		return dateOfBirth;
@@ -29,8 +29,8 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public void setEMail(String eMail) {
-		this.eMail = eMail;
+	public void setmyemail(String myemail) {
+		this.myemail = myemail;
 	}
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;

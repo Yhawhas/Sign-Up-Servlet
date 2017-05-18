@@ -23,7 +23,6 @@ public class SignUpServletServlet extends HttpServlet {
 		req.setAttribute("message1", sendMessage);
 		RequestDispatcher rd = req.getRequestDispatcher("/LoginPage");
 		rd.forward(req, resp);
-//		resp.sendRedirect("/LoginPage");
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {

@@ -1,7 +1,10 @@
 package com.signup.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,15 +40,19 @@ public class UserProfileServlet extends HttpServlet {
 			Person person = new Person();
 			person.setFirstName(firstName);
 			person.setLastName(lastName);
-			person.setEMail(eMail);
+			person.setmyemail(eMail);
 			person.setDateOfBirth(dateOfBirth);
 			person.setAddress(address);
 			
 			String username = (String)session.getAttribute("usernameSession");
 			storage.addPersonDetail(username, person);
 			
-			boolean result = true;
-			session.setAttribute("ProfileSubmitted", result);
+			Map<String, ArrayList<Person>> personDataMap = storage.getPersonData();
+			ServletContext contextObj = getServletContext();
+			contextObj.setAttribute("personDataMap", personDataMap);
+			
+//			boolean result = true;
+//			session.setAttribute("ProfileSubmitted", result);
 
 			resp.sendRedirect("/ProfilePage");
 		}

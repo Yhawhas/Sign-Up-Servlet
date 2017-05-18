@@ -78,9 +78,9 @@ margin-bottom:20%;
 	<%@ page session="false"%>
 	<h1>Sign Up</h1>
 	<form name="SignupForm" action="signup" method="post" onsubmit="return formvalidation()">
-		User Name: <input type="text" name="username" placeholder = "Ex: yhawhas" required>*Minimum 3 characters and Only Alphabets are allowed<br><br>
-		Password: <input type="password" name="password1" placeholder = "Ex: 31@Joshua" required>*Minimum 6 Characters with atleast 1 capital, 1 number and 1 special character<br><br>
-		Re-Type Password: <input type="password" name="password2" required><br>
+		User Name: <input type="text" name="username" placeholder = "Ex: yhawhas"  required>*Minimum 3 characters and Only Alphabets are allowed<br><br>
+		Password: <input type="password" name="password1" placeholder = "Ex: 31@Joshua"  required>*Minimum 6 Characters with atleast 1 capital, 1 number and 1 special character<br><br>
+		Re-Type Password: <input type="password" name="password2"  required><br>
 		<input type="submit" value="Sign Up"><br>
 	</form>
 </body>
